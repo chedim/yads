@@ -1,0 +1,10 @@
+{
+    "author":"chedim@chedim.ru",
+    "name":"zenrouter",
+    "description":"HTTP requests router",
+    "version":"0.1",
+    "homepage":"",
+    "main":"router.js",
+    "engines":{},
+    "devDependencies":{}
+}

@@ -1,0 +1,14 @@
+{
+    "author":"chedim",
+    "name":"pg_dalek",
+    "description":"PostgreSQL Database Abstraction LayerEK",
+    "version":"0.1",
+    "homepage":"",
+    "main":"pg_dalek.js",
+    "engines":{},
+    "dependencies":{
+        "pg":">0.0.0",
+        "zenutils":">0.0.0"
+    },
+    "devDependencies":{}
+}

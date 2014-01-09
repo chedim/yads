@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Задание 4</title>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/task4.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/task4.css"/>
+</head>
+<body>
+<ul>
+    <li>Для перехода к следующему слайду кликните по правой части изображения, к предыдущему — по левой (нормальный
+        интерфейс можно отдельно прикрутить :)
+    </li>
+    <li>Ручной переход к следующему/предыдущему слайду выключает автоскролл слайдов</li>
+    <li>Автоскролл в обратном направлении и произвольная навигация будут добавлены в следующей версии :)</li>
+</ul>
+<p>
+    <input type="button" value="Презентация №1" onclick="$('#slides1').slides()"/>
+    (
+    <input type="button" value="запустить автоскролл" onclick="$('#slides1').slides().autoScroll(3000);"/>
+    <input type="button" value="остановить автоскролл" onclick="$('#slides1').slides().autoScroll(0);"/>
+    )
+    <br/>
+    <input type="button" value="Презентация №2" onclick="$('#slides2').slides()"/>
+    (
+    <input type="button" value="запустить автоскролл" onclick="$('#slides2').slides().autoScroll(3000);"/>
+    <input type="button" value="остановить автоскролл" onclick="$('#slides2').slides().autoScroll(0);"/>
+    )
+    <br/>
+</p>
+
+<div style='margin: 20px; width: 600px; height: 400px; float: left' id='slides1'>
+    <img src="img/pic1.jpg">
+    <img src="img/pic2.jpg">
+    <img src="img/pic3.jpg">
+    <img src="img/pic4.jpg">
+    <img src="img/pic5.jpg">
+    <img src="img/pic6.jpg">
+</div>
+<div style='margin: 20px; width: 600px; height: 400px; float: left' id='slides2'>
+    <img src="img/pic1.jpg">
+    <img src="img/pic2.jpg">
+    <img src="img/pic3.jpg">
+    <img src="img/pic4.jpg">
+    <img src="img/pic5.jpg">
+    <img src="img/pic6.jpg">
+</div>
+</body>
+</html>

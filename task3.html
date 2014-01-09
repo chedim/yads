@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Задание 3</title>
+    <script type="text/javascript" src="./js/lib.js"></script>
+    <script type="text/javascript" src="./js/task3.js"></script>
+    <script type="text/javascript">
+        function add() {
+            var url = document.getElementById('url').value,
+                    params = document.getElementById('query').value,
+                    result = document.getElementById('results');
+
+            result.innerText = 'Ошибка. Некорректный JSON?';
+            params = JSON.parse(params);
+            result.innerText = url.$addQueryParams(params);
+        }
+    </script>
+</head>
+<body>
+<table style="width: 90%; height: 100%; position: absolute; left: 5%; top: 5%;">
+    <tr height='1'>
+        <td style="padding: 10px;" width='50%' align='right'>
+            Произвольный URL:
+        </td>
+        <td style="padding: 10px">
+            <input type="text" id='url' style="width: 100%" value="http://money.yandex.ru/?hello=world"/>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px;" align='right'>
+            JSON объекта, представляющего HTTP-запрос:
+        </td>
+        <td style="padding: 10px">
+            <input type="text" id='query' style="width: 100%"
+                   value='{"s=":[1,2],"z":{"y":"gg&2 ","arr":["xx","<>"]},"test? :)":"passed","null":null,"empty":"","boolean":false}'/>
+        </td>
+    </tr>
+    <tr height="1">
+        <td colspan="2" align='center'>
+            <input type="button" value="Сериализовать" onclick="add()"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" id="results" valign="top"></td>
+    </tr>
+</table>
+</body>
+</html>

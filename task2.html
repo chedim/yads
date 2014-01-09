@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Задание 2</title>
+    <script type="text/javascript" src="./js/lib.js"></script>
+    <script type="text/javascript" src="./js/task2.js"></script>
+    <script type="text/javascript">
+        function compare() {
+            var qs1 = document.getElementById('qs1').value.parseQuery(),
+                    qs2 = document.getElementById('qs2').value.parseQuery();
+            console.log(qs1, qs2);
+            var results = [];
+
+            for (var i in qs1) {
+                if (qs2[i] === undefined) {
+                    results.push('Ключ "' + i + '" был удалён.');
+                } else {
+                    var len = Math.max(qs1[i].length, qs2[i].length);
+                    for (var j = 0; j < len; j++) {
+                        if (qs1[i][j] != qs2[i][j]) {
+                            if (qs2[i][j] === undefined) {
+                                results.push('Вхождение ' + j + ' ключа "' + i + '" было удалено.');
+                            } else if (qs1[i][j] === undefined) {
+                                results.push('Было добавлено вхождение ' + j + ' ключа "' + i + '"');
+                            } else {
+                                if (len == 1) {
+                                    results.push('Значение ключа "' + i + '" было изменено с ' +
+                                            '&lt;' + qs1[i][j] + '&gt; на &lt;' + qs2[i][j] + '&gt;')
+                                } else {
+                                    results.push('Значение вхождения ' + j + ' ключа "' + i + '" было изменено с ' +
+                                            '&lt;' + qs1[i][j] + '&gt; на &lt;' + qs2[i][j] + '&gt;');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            for (var i in qs2) {
+                if (qs1[i] === undefined) {
+                    var len = qs2[i].length;
+                    results.push('Было добавлено ' + len + ' ' + len.$decl(['вхождение', 'вхождения', 'вхождений']) +
+                            ' ключа "' + i + '"');
+                }
+            }
+            if (results.length == 0) results.push('Изменений не замечено.');
+            document.getElementById('results').innerHTML = results.join('<br/>');
+        }
+    </script>
+</head>
+<body>
+<table style="width: 90%; height: 100%; position: absolute; left: 5%; top: 5%;">
+    <tr height='30%'>
+        <td width='50%'>
+            Query-string #1:
+            <textarea style="width:100%; height:100%" id='qs1'>hello=world&s%3D[]=1&s%3D[]=2&z[y]=gg%262%20&z[arr][]=xx&z[arr][]=%3C%3E&test%3F%20%3A)=passed&null=&empty=&boolean=false</textarea>
+        </td>
+        <td width='50%'>
+            Query-string #2:
+            <textarea style="width:100%; height:100%" id='qs2'>world=hello&s%3D[]=1&s%3D[]=0&z[y]=gg%262%20&z[arr][]=xx&z[arr][]=%3C%3E&test%3F%20%3A)=passed&null=&empty=&boolean=false</textarea>
+        </td>
+    </tr>
+    <tr height="1">
+        <td colspan="2" align='center'>
+            <input type="button" value="Сравнить" onclick="compare()"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" id="results" valign="top"></td>
+    </tr>
+</table>
+</body>
+</html>
